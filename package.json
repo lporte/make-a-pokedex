@@ -1,0 +1,28 @@
+{
+  "name": "make-a-pokedex",
+  "version": "1.0.0",
+  "description": "Learn how to consume the Pokeapi API with Node/Express",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lporte/make-a-pokedex.git"
+  },
+  "keywords": [
+    "tutorials",
+    "node",
+    "express",
+    "apis",
+    "pokemon"
+  ],
+  "author": "Lauryn Porte & Hannaha Lee",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lporte/make-a-pokedex/issues"
+  },
+  "homepage": "https://github.com/lporte/make-a-pokedex#readme",
+  "dependencies": {
+    "express": "^4.15.2",
+    "mongoose": "^4.9.1",
+    "request": "^2.81.0"
+  }
+}
