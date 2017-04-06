@@ -17,7 +17,7 @@ Download the repo
 Install the dependencies & start the server
 ```bash
 $ npm install
-$ npm server.js
+$ node server.js
 ```
 
 See the site in your browser at [http://localhost:8080](http://localhost:8080).
@@ -34,8 +34,9 @@ What information can you get out of the API? How can you manipulate it? What are
 
 #### Stretch Challenges: 
 
-Now that you have a fully functional GET request working, you have the perfect 
-canvas on which to experiment. Implement any of the following:
+Now that you have a fully functional GET request working, you have the perfect canvas on which to experiment. 
+
+Implement any of the following:
 
   - **Use an endpoint that requires authentication**. Implement the 
       [Twitter API](https://dev.twitter.com/rest/public) to post to your account every time you like a pokemon in your pokedex
