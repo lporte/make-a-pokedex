@@ -21,8 +21,11 @@
   },
   "homepage": "https://github.com/lporte/make-a-pokedex#readme",
   "dependencies": {
+    "body-parser": "^1.17.1",
     "express": "^4.15.2",
-    "mongoose": "^4.9.1",
+    "express-handlebars": "^3.0.0",
+    "install": "^0.8.8",
+    "npm": "^4.4.4",
     "request": "^2.81.0"
   }
 }
