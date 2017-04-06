@@ -58,14 +58,15 @@
   <div id="right">
     <div id="stats">
       {{#if err}}
-        <h1>Error: {{err}} </h1>
-      {{/if}}  
+        <h1>Oh noes!: {{err}} </h1>
+      {{else}}
       <strong>Name :</strong> {{ pokemon.name }}<br/>
       <strong>Type :</strong> {{ pokemon.type }}<br/>
       <strong>Height :</strong> {{ pokemon.height }}<br/>
       <strong>Weight :</strong> {{ pokemon.weight }}<br/><br/>
       <strong>{{ pokemon.title }}</strong><br/>
       {{ pokemon.desc }}
+      {{/if}}  
     </div>
     <div id="blueButtons2">
       <div class="blueButton"></div>
@@ -81,7 +82,7 @@
     <div id="yellowBox2">    
     <form action="/" method="post">
         Pokemon name or id number:<br>
-        <input type="text" name="input" placeholder="Squirtle">
+        <input type="text" name="input" placeholder="54 or Mew">
         <br>
         <input type="submit" value="Submit">
       </form>
