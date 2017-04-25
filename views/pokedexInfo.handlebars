@@ -58,14 +58,13 @@
   <div id="right">
     <div id="stats">
       {{#if err}}
-        <h1>Oh noes!: {{err}} </h1>
+        <h1>Oh noes!: {{ err }} </h1>
       {{else}}
       <strong>Name :</strong> {{ pokemon.name }}<br/>
+      <strong>Name :</strong> {{ pokemon.id }}<br/>
       <strong>Type :</strong> {{ pokemon.type }}<br/>
       <strong>Height :</strong> {{ pokemon.height }}<br/>
       <strong>Weight :</strong> {{ pokemon.weight }}<br/><br/>
-      <strong>{{ pokemon.title }}</strong><br/>
-      {{ pokemon.desc }}
       {{/if}}  
     </div>
     <div id="blueButtons2">
@@ -80,11 +79,8 @@
     <div id="barbutton3"></div>
     <div id="barbutton4"></div>
     <div id="yellowBox2">    
-    <form action="/" method="post">
-        Pokemon name or id number:<br>
-        <input type="text" name="input" placeholder="54 or Mew">
-        <br>
-        <input type="submit" value="Submit">
+      <form action="/" method="post">
+        <input id="clickMe" type="submit" value="CLICK ME!">
       </form>
     </div>
     <div id="bg_curve1_right"></div>

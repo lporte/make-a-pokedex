@@ -51,13 +51,19 @@ app.get('/', function(req, res){
 // As explained above, usage of 'body-parser' means
 // that `req.body` will be filled in with the form elements
 app.post('/', function(req, res) {
-   var input = req.body.input;
-   getPokemonData(input, res);
+   var randomNum = Math.floor(Math.random() * 250) + 1;
+   getPokemonData(randomNum, res);
 	
 });
 
-function getPokemonData(input, res) {
-   request('http://pokeapi.co/api/v2/pokemon/' + input, function(err, results) {
+function getPokemonData(randomNum, res) {
+	// ***************************************
+	// CHALLENGE 1:  Replace the blank line below with your GET request
+	// Once sucessfully implemented, the pokemon name, type, height, 
+	// and weight will display in the Pokedex!
+	// Feel free to use your own debugging methods here (like console.log).
+	// ***************************************
+   request(______________________ + randomNum + "/", function(err, results) {
          // Handling an invalid pokemon API call
          if (err || results.statusCode === 404) {
             var err = err || "Pokemon not found",
@@ -65,45 +71,36 @@ function getPokemonData(input, res) {
             
             res.render('pokedexInfo', {err: err, pokemon: pokemon});
          } else {
+         	// Successful GET request results end up here!
             var parsedData = JSON.parse(results.body),
-                pokemon = createPokemon(parsedData);
+                pokemonObj = createPokemon(parsedData);
 
-                getSpeciesData(input, pokemon, res);
+                console.log("POKEMON from createPokemon method on line 93: ", pokemonObj)
+
+                res.render('pokedexInfo', {pokemon: pokemonObj});
+
          }        
    });
 };
 
-function getSpeciesData(input, pokemon, res) {
-   var pokemonObj = pokemon;
-   request('http://pokeapi.co/api/v2/pokemon-species/' + input, function(err, results) {
-         if (err || results.statusCode === 404) {
-            var err = err || "Pokemon not found",
-                pokemon = { img: defaultImg };
-         
-            res.render('pokedexInfo', {err: err, pokemon: pokemon});
-         } else {
-            var results = JSON.parse(results.body);
+// ***************************************
+// CHALLENGE 2:  Implement a different GET request here
+// Hint:  Read the Pokeapi documentation to see other types of GET requests, or choose another API
+// Try to display the results from that call in the views/layouts/pokedexInfo.handlebars file
+// ***************************************
 
-            pokemonObj.title = results.genera[0].genus;
-            pokemonObj.desc = results.flavor_text_entries[1].flavor_text || 'Cool';
-            res.render('pokedexInfo', {pokemon: pokemonObj});
-      }
-   }); 
-};
-
+// Helper method for grabbing data from our JSON results
 function createPokemon(results) {
    var pokemon = {},
    keys = results.sprites ? Object.keys(results.sprites) : [],
-   random = Math.floor(Math.random() * keys.length) + 2;
+   random = Math.floor(Math.random() * keys.length) + 1;
 
    pokemon.id = results.id || '';
    pokemon.name = results.name || '';
    pokemon.height = results.height || '';
    pokemon.weight = results.weight || '';
    pokemon.type = results.types[0].type.name || '';
-   pokemon.img = keys.length && 
-      (results.sprites[keys[random]] !== null || results.sprites[keys[random]] !== undefined) ? 
-         results.sprites[keys[random]] : defaultImg;
+   pokemon.img = !results.sprites[keys[random]] ? defaultImg : results.sprites[keys[random]];
 
    return pokemon;
 };
