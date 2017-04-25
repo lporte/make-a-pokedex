@@ -1,3 +1,4 @@
+/* custom css for pokedex */
 * {
 	margin: 0;
 	padding: 0;
@@ -23,7 +24,7 @@
 	div#right
 	{
 		width: 350px;
-		height: 500px;
+		height: 560px;
 		float: left;
 		position: relative;
 	}
@@ -299,6 +300,7 @@
 	{
 		display: block;
 		margin: 0 auto;
+		height: 100%;
 	}
 
 	div#topPicture
@@ -656,7 +658,6 @@
 	div#curve1_right
 	{
 		width: 166px;
-		height: 451px;
 		background-color: #c00d0d;
 		float: right;
 
@@ -719,7 +720,7 @@
 
 	div#stats
 	{
-		height: 130px;
+		height: 160px;
 		width: 280px;
 		padding: 10px;
 		background-color: #30da0c;
@@ -890,38 +891,14 @@
 		background: -o-radial-gradient(#0abd0a, #057b05);
 	}
 
-	div#yellowBox1
-	{
-		width: 140px;
-		height: 70px;
-		z-index: 1;
-		background-color: #ffff00;
-
-		position: absolute;
-		top: 415px;
-		left: 25px;
-
-		border-radius: 15px;
-		-webkit-border-radius: 15px;
-		-moz-border-radius: 15px;
-		-o-border-radius: 15px;
-
-		box-shadow: 0 0 20px #ff6600 inset;
-		-webkit-box-shadow: 0 0 20px #ff6600 inset;
-		-moz-box-shadow: 0 0 20px #ff6600 inset;
-		-o-box-shadow: 0 0 20px #ff6600 inset;
-	}
-
 	div#yellowBox2
 	{
-		width: 140px;
 		height: 70px;
 		z-index: 1;
 		background-color: #ffff00;
-
 		position: absolute;
+		left: 20px;
 		top: 415px;
-		left: 185px;
 
 		border-radius: 15px;
 		-webkit-border-radius: 15px;

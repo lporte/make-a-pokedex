@@ -1,12 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8" />
-    <title>Document</title>
-    <link rel="stylesheet" type="text/css" href="./styles.css">
-</head>
-<body>
-	<h1>POKEDEX</h1>  
+
 	<div id="pokedex">
   <div id="left">
     <div id="logo"></div>
@@ -32,7 +24,7 @@
         <div id="buttontopPicture2"></div>
       </div>
       <div id="picture">
-        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/200653/psykokwak.gif" alt="psykokwak" height="170" />
+        <img src= {{ pokemon.img }} />
       </div>
       <div id="buttonbottomPicture"></div>
       <div id="speakers">
@@ -65,19 +57,16 @@
   </div>
   <div id="right">
     <div id="stats">
-      <strong>Name :</strong> Psyduck<br/>
-      <strong>Type :</strong> Water<br/>
-      <strong>Height :</strong> 2'072''<br/>
-      <strong>Weight :</strong> 43.2 lbs.<br/><br/>
-      <strong>The duck Pokemon</strong><br/>
-      Uses mysterious powers to perform various attacks.
-    </div>
-    <div id="blueButtons1">
-      <div class="blueButton"></div>
-      <div class="blueButton"></div>
-      <div class="blueButton"></div>
-      <div class="blueButton"></div>
-      <div class="blueButton"></div>
+      {{#if err}}
+        <h1>Oh noes!: {{err}} </h1>
+      {{else}}
+      <strong>Name :</strong> {{ pokemon.name }}<br/>
+      <strong>Type :</strong> {{ pokemon.type }}<br/>
+      <strong>Height :</strong> {{ pokemon.height }}<br/>
+      <strong>Weight :</strong> {{ pokemon.weight }}<br/><br/>
+      <strong>{{ pokemon.title }}</strong><br/>
+      {{ pokemon.desc }}
+      {{/if}}  
     </div>
     <div id="blueButtons2">
       <div class="blueButton"></div>
@@ -90,13 +79,17 @@
     <div id="miniButtonGlass5"></div>
     <div id="barbutton3"></div>
     <div id="barbutton4"></div>
-    <div id="yellowBox1"></div>
-    <div id="yellowBox2"></div>
+    <div id="yellowBox2">    
+    <form action="/" method="post">
+        Pokemon name or id number:<br>
+        <input type="text" name="input" placeholder="54 or Mew">
+        <br>
+        <input type="submit" value="Submit">
+      </form>
+    </div>
     <div id="bg_curve1_right"></div>
     <div id="bg_curve2_right"></div>
     <div id="curve1_right"></div>
     <div id="curve2_right"></div>
   </div>
 </div>  
-</body>
-</html>
