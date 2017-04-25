@@ -13,6 +13,7 @@ Learn the basics of consuming an API and customizing it on the front end by cust
 ## Installation
 
 Clone or Download the repo
+
 ![alt text](https://i.stack.imgur.com/PrvYK.png "Clone or download the repo!")
 
 
@@ -36,7 +37,7 @@ View the Pokedex in your browser at [http://localhost:8080](http://localhost:808
 ## Question time
 What information can you get out of the API? How can you manipulate it? What are this APIs limitations?
 
-#### Stretch Challenges: 
+## Stretch Challenges: 
 
 Now that you have a fully functional GET request working, you have the perfect project on which to experiment. 
 
