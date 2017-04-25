@@ -1,4 +1,4 @@
-Intro to APIs: Make a Pokedex with the Pokeapi!
+#Intro to APIs: Make a Pokedex with the Pokeapi!
 
 ## Learning Competencies
 - consume an API 
@@ -37,7 +37,7 @@ View the Pokedex in your browser at [http://localhost:8080](http://localhost:808
 ## Question time
 What information can you get out of the API? How can you manipulate it? What are this APIs limitations?
 
-## Stretch Challenges: 
+## Stretch Challenges
 
 Now that you have a fully functional GET request working, you have the perfect project on which to experiment. 
 
