@@ -1,4 +1,4 @@
-#Intro to APIs: Make a Pokedex with the Pokeapi!
+# Intro to APIs: Make a Pokedex with the Pokeapi!
 
 ## Learning Competencies
 - consume an API 
