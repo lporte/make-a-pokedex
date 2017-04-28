@@ -31,7 +31,7 @@ View the Pokedex in your browser at [http://localhost:8080](http://localhost:808
     - Read about what the API does and the shape of the data returned.
 2.  Try making a GET request in curl or your browser
 3.  Navigate to the JSON-Challenge branch and follow the instructions in the README
-4.  Navigate to the GET-Challenge branch and follow the instructions in the README
+4.  Navigate to the Get-Challenge branch and follow the instructions in the README
 5.  Finished?  Try out the stretch challenges below!  Decide how to adapt the API to fit your current needs.
 
 ## Question time
@@ -47,3 +47,5 @@ Implement any of the following:
   - **Use an endpoint that requires authentication**. Implement the 
       [Twitter API](https://dev.twitter.com/rest/public) to post to your account every time you like a pokemon in your pokedex
 
+## Credits
+Pokedex CSS: [Bidji](http://codepen.io/Bidji/pen/MYdPwo) on Codepen 
