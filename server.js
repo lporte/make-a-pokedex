@@ -1,11 +1,11 @@
 'use strict';
 // BASIC SETUP
 // =============================================================================
-var express    = require('express');        
+var express    = require('express');
 var app        = express();                     // initialize our app using express
-var path 	     = require('path');			          // helps make file and directory paths
-var request    = require('request'); 		        // makes http calls
-var bodyParser = require('body-parser');	      // grab incoming POST request input
+var path 	   = require('path');			    // helps make file and directory paths
+var request    = require('request'); 		    // makes http calls
+var bodyParser = require('body-parser');	    // grab incoming POST request input
 var exphbs 	   = require('express-handlebars')  // setup for our views
 
 var port = process.env.PORT || 8080;            // set our port
@@ -19,23 +19,23 @@ app.use(express.static('views'));
 
 // use body parser to view our form input easily
 app.use(bodyParser.urlencoded({
-   extended: false
+    extended: false
 }));
 
 app.use(bodyParser.json());
 
 // define some default values to use for our app
 var defaultPokemon = {
-      id: 54,
-      height: '2"072',
-      weight: '43.2',
-      type: 'water',
-      name: 'Psyduck',
-      img: 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/200653/psykokwak.gif',
-      title: 'the duck pokemon',
-      desc: 'Uses mysterious powers to perform various attacks.'
-   },
-   defaultImg = 'https://media.giphy.com/media/JukJD3YfnXPkA/giphy.gif';
+        id: 54,
+        height: '2"072',
+        weight: '43.2',
+        type: 'water',
+        name: 'Psyduck',
+        img: 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/200653/psykokwak.gif',
+        title: 'some kind of duck',
+        desc: 'Uses mysterious powers to perform various attacks.'
+    },
+    defaultImg = 'https://media.giphy.com/media/JukJD3YfnXPkA/giphy.gif';
 
 
 // ROUTES FOR OUR APP
@@ -43,68 +43,74 @@ var defaultPokemon = {
 
 // A browser's default method is 'GET', so this
 // is the route that express uses when we visit
-// our site initially.
+// our Pokedex page initially.
 app.get('/', function(req, res){
-   res.render('pokedexInfo', { pokemon: defaultPokemon });
+    res.render('pokedexInfo', { pokemon: defaultPokemon });
 });
 
 // This route receives the posted form.
 // As explained above, usage of 'body-parser' means
 // that `req.body` will be filled in with the form elements
 app.post('/', function(req, res) {
-   getPokemonData(res);
+    getPokemonData(res);
 });
 
 function getPokemonData(res) {
-	///////////////////////////////////////////////////////////////////////////
-	// CHALLENGE 1:  Replace the value for the variable GET_Request          //
-  // with the  the correct URL for retrieving a pokemon's data.            //
-  //                                                                       //
-	// Feel free to use your own debugging methods here (like console.log).  //
-	///////////////////////////////////////////////////////////////////////////
-   var GET_Request = 'http://pokeapi.co/api/v2/pokemon/',
-       randomNum = Math.floor(Math.random() * 250) + 1;
+    ///////////////////////////////////////////////////////////////////////////
+    // CHALLENGE 1:  Fill in the value for the var GET_Request below        //
+    // with the  the correct Pokeapi URL for retrieving a pokemon's data.    //
+    var GET_Request = '_____________________';                                                                   //
+    // Feel free to use your own debugging methods here (like console.log).  //
+    ///////////////////////////////////////////////////////////////////////////
 
-   request(GET_Request + randomNum + "/", function(err, results) {
-         // Handling an invalid pokemon API call
-         if (err || results.statusCode === 404) {
+    var randomNum = Math.floor(Math.random() * 250) + 1;
+
+    request(GET_Request + randomNum + "/", function(err, results) {
+        // Handling an invalid pokemon API call
+        if (err || results.statusCode === 404) {
             var err = err || "Pokemon not found",
                 pokemon = { img: defaultImg };
-            
+
             res.render('pokedexInfo', {err: err, pokemon: pokemon});
-         } else {
-         	// Successful GET request results end up here!
+        } else {
+            // Successful GET request results end up here!
             var parsedData = JSON.parse(results.body),
                 pokemonObj = createPokemon(parsedData);
 
-            console.log("POKEMON from createPokemon method on line 93: ", pokemonObj)
+            // Check out the pokemon obj you made in your terminal
+            console.log("POKEMON from createPokemon method on line 101: ", pokemonObj)
+
             res.render('pokedexInfo', {pokemon: pokemonObj});
 
-         }        
-   });
+        }
+    });
 };
 
 ///////////////////////////////////////////////////////////////////////////
 // CHALLENGE 2:  Implement a different GET request here                  //
 // Hint:  Read the Pokeapi documentation to see other types of GET       //
-// requests, or choose another API.  Try to display the results from     //
-// that call in the views/layouts/pokedexInfo.handlebars file            //
+// requests, or, choose another API.                                     //
+//                                                                       //
+// Try to display the results from that call in the                      //
+// views/layouts/pokedexInfo.handlebars file                             //
 ///////////////////////////////////////////////////////////////////////////
+
+
 
 // Helper method for grabbing data from our JSON results
 function createPokemon(results) {
-   var pokemon = {},
-   keys = results.sprites ? Object.keys(results.sprites) : [],
-   random = Math.floor(Math.random() * keys.length) + 1;
+    var pokemon = {},
+        keys = results.sprites ? Object.keys(results.sprites) : [],
+        random = Math.floor(Math.random() * keys.length) + 1;
 
-   pokemon.id = results.id || '';
-   pokemon.name = results.name || '';
-   pokemon.height = results.height || '';
-   pokemon.weight = results.weight || '';
-   pokemon.type = results.types[0].type.name || '';
-   pokemon.img = !results.sprites[keys[random]] ? defaultImg : results.sprites[keys[random]];
+    pokemon.id = results.id || '';
+    pokemon.name = results.name || '';
+    pokemon.height = results.height || '';
+    pokemon.weight = results.weight || '';
+    pokemon.type = results.types[0].type.name || '';
+    pokemon.img = !results.sprites[keys[random]] ? defaultImg : results.sprites[keys[random]];
 
-   return pokemon;
+    return pokemon;
 };
 
 

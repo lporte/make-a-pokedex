@@ -891,7 +891,7 @@
 		background: -o-radial-gradient(#0abd0a, #057b05);
 	}
 
-	input#clickMe, form input[type="submit"] 
+	input#clickMe, form input[type="submit"]
 	{
 		height: 70px;
 		z-index: 1;

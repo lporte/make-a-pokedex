@@ -1,22 +1,29 @@
 
-# Intro to APIs: Make a Pokedex with the Pokeapi!
+# Intro to APIs: GET Request Challenge!
+
 
 ## GET Challenge Learning Competencies
-- consume an API 
-- implement a HTTP GET request
-- retrieve data from a JSON response
+- Implement a GET request inside of a Node/Express app
+- Customize a web app front end 
 
 ## Instructions
-1. Check out the (Pokeapi documentation)[http://pokeapi.co/docsv2/#]
-2. **CHALLENGE 1**
-	- In the server.js file (line 65), add the correct GET request so that it successfully displays a pokemon & it's data in the pokedex when you press the 'CLICK ME!' button 
+1. Install dependencies from within the project's root directory  
+	```
+	npm install
+	```
+2. Start the challenge!
+	- Run the server and see the 
+	- In the server.js file (line 62), add the correct GET request so that it successfully displays a pokemon & it's data in the pokedex when you press the 'CLICK ME!' button 
 	- Once sucessfully implemented, the pokemon image, name, type, height, and weight will display in the Pokedex in your browser  
-3. **CHALLENGE 2**
-	- Freestyle:  You just leveled up!  Through rigorous training you and your Pokemon can get much STRONGER!
-		- Add a different GET request to your server.js file
+3. Level up!
+	- Freestyle:  You just levelled up!  Through rigorous training you and your Pokedex can get much STRONGER!
+		- Add a different GET request to your server.js file 
 		- Try to display those results in the Pokedex view
 	- Ideas:  
-		- Use the Pokeapi evolution chains display a pokemon's family tree https://pokeapi.co/docsv2/#evolution-section
+		- Use the Pokeapi [evolution chain](https://pokeapi.co/docsv2/#evolution-section) endpoint to display a pokemon's family tree 
 		- Choose any unused button on the Pokedex and make it interactive 
 			- i.e.) Every time a button is clicked, it Tweets the current pokemon name to your account
 		- Paginate the Pokemon displayed by incrementing the id by one on each 'CLICK ME!' button click
+
+## Credits
+Pokedex CSS: [Bidji](http://codepen.io/Bidji/pen/MYdPwo) on Codepen 
