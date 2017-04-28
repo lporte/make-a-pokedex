@@ -7,12 +7,12 @@
 - Customize a web app front end 
 
 ## Instructions
-1. Install dependencies from within the project's root directory  
+1. Install dependencies & run the server from within the project's root directory  
 	```
 	npm install
+	npm start
 	```
 2. Start the challenge!
-	- Run the server and see the 
 	- In the server.js file (line 62), add the correct GET request so that it successfully displays a pokemon & it's data in the pokedex when you press the 'CLICK ME!' button 
 	- Once sucessfully implemented, the pokemon image, name, type, height, and weight will display in the Pokedex in your browser  
 3. Level up!
